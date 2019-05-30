@@ -1,0 +1,6 @@
+input=$1
+sha=`git log --pretty=format:'%h' -n 1`
+version=`cat readme.txt | cut -f2 -d.`
+version_new=$1.$((version+1)).$sha
+g++ -std=c++11 -I/usr/include/boost/asio -I/usr/include/boost -o binary-$version_new.out main.cpp connection.cpp connection_manager.cpp mime_types.cpp reply.cpp request_handler.cpp request_parser.cpp server.cpp -lboost_system -lboost_thread -lpthread
+echo $version_new > readme.txt
