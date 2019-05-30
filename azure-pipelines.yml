@@ -10,7 +10,7 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
-- script: sudo apt-get install libboost-all-dev
+- script: ls
   displayName: 'Install dependency'
 
 
